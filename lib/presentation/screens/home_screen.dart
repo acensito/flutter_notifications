@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_notifications/presentation/blocs/notifications/notifications_bloc.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,13 +9,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Estado de los permisos'),
+        title: context.select((NotificationsBloc bloc) => Text( '${bloc.state.status}')),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
-              // Acción para abrir la configuración
-              // TODO solicitar permisos de notificaciones
+              // accion para modificar permisos
+              context.read<NotificationsBloc>().requestPermission();
             },
           ),
         ],

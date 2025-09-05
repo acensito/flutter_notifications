@@ -5,11 +5,13 @@ import 'package:flutter_notifications/config/theme/app_theme.dart';
 import 'package:flutter_notifications/presentation/blocs/notifications/notifications_bloc.dart';
 
 void main() {
-  MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (_) => NotificationsBloc()),
-    ],
-    child: const MainApp(),
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => NotificationsBloc()),
+      ],
+      child: const MainApp(),
+    ),
   );
 }
 
