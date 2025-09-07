@@ -12,3 +12,15 @@ class NotificationStatusChanged extends NotificationsEvent {
   @override
   List<Object> get props => [status];
 }
+
+//evento para nueva notificacion
+class NotificationReceived extends NotificationsEvent {
+  final PushMessage message;
+
+  const NotificationReceived(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+//todo agregar evento para nueva notificacion
