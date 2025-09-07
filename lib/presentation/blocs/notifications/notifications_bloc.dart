@@ -76,4 +76,12 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
     final updatedNotifications = [event.message, ...state.notifications];
     emit(state.copyWith(notifications: updatedNotifications));
   }
+
+  PushMessage? getMessageById(String pushMessageId) {
+    try {
+      return state.notifications.firstWhere((msg) => msg.messageId == pushMessageId);
+    } catch (e) {
+      return null;
+    }
+  }
 }
