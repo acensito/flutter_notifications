@@ -62,6 +62,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       messageId: message.messageId?.replaceAll(':', '').replaceAll('%', '') ?? '',
       title: message.notification!.title ?? '',
       body: message.notification!.body ?? '',
+      data: message.data,
       sendDate: message.sentTime ?? DateTime.now(),
       imageUrl: message.data['image'] ?? message.notification!.android?.imageUrl ?? message.notification!.apple?.imageUrl,
     );
