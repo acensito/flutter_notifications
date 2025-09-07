@@ -44,5 +44,3 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Ignore API KEY Google
-/lib/firebase_options.dart
